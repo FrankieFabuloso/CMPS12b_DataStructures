@@ -1,0 +1,6 @@
+README
+makefile
+Dictionary.c
+DictionaryTest.c
+Dictionary.h
+DictionaryClient.c

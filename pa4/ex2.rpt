@@ -1,0 +1,6 @@
+Report file: ex2.rpt
+4 Jobs:
+(7, 1, *) (5, 5, *) (4, 6, *) (3, 5, *) 
+
+***********************************************************
+Processors: totalWait=25, maxWait=12, averageWait=6.25

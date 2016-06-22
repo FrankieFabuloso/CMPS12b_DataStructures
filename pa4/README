@@ -1,0 +1,14 @@
+README
+
+Comment:
+program is not completed to the specifications in the Program 4 assignment requisites due to lack of time to finish.
+Can only work on with processor and cannot compute a trace file. Turning in what I have completed and a Simulation.java file that does at least some of the work we were supposed to have done.
+
+README
+Simulation.java
+QueueInterface.java
+QueueEmptyException.java
+Queue.java
+QueueTest.java
+Job.java
+makefile 

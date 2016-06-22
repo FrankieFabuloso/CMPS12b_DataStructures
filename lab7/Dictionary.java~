@@ -1,0 +1,77 @@
+//-----------------------------------------------------------------------------
+// Dictionary.java
+// Binary Search Tree implementation of the Dictionary ADT
+//-----------------------------------------------------------------------------
+
+public class Dictionary implements DictionaryInterface{
+
+   // private inner Node class
+   private class Node {
+      String key;
+      String value;
+      Node left;
+      Node right;
+
+      Node(String key, String value){
+         this.key = key;
+         this.value = value;
+         left = null;
+         right = null;
+      }
+   }
+  
+     // Fields for the Dictionary class
+   private Node root;     // reference to first Node in List
+   private int numItems;  // number of items in this IntegerList
+  
+   public Node findKey(String key){
+     Node N = root;
+     if(key.compareTo(N.key)=0)
+       return N;
+     if( key.compareTo(root.key)<0)
+       
+   
+   // isEmpty()
+   // returns true if this Dictionary is empty, false otherwise
+   // pre: none
+   public boolean isEmpty(){
+     return (numItems==0);
+   }
+
+   // size()
+   // returns the number of entries in this Dictionary
+   // pre: none
+   public int size(){
+     return numItems;
+   }
+
+   // lookup()
+   // returns value associated key, or null reference if no such key exists
+   // pre: none
+   public String lookup(String key){
+   }
+
+   // insert()
+   // inserts new (key,value) pair into this Dictionary
+   // pre: lookup(key)==null
+   public void insert(String key, String value) throws KeyCollisionException{
+   }
+
+   // delete()
+   // deletes pair with the given key
+   // pre: lookup(key)!=null
+   public void delete(String key) throws KeyNotFoundException{
+   }
+
+   // makeEmpty()
+   // pre: none
+   public void makeEmpty(){
+   }
+
+   // toString()
+   // returns a String representation of this Dictionary
+   // overrides Object's toString() method
+   // pre: none
+   public String toString(){
+   }
+}

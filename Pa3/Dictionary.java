@@ -1,0 +1,132 @@
+//-----------------------------------------------------------------------------
+// Program 3 compleate by:
+// Francisco Rocha (frocha@ucsc.edu)
+// Dictionary.java
+// Stack implementation of Dictionary ADT
+//-----------------------------------------------------------------------------
+
+public class Dictionary implements DictionaryInterface{
+  
+  private class Node{
+    String key;
+    String value;
+    Node next;
+    Node(String key, String value){
+      this.key = key;
+      this.value = value;
+      this.next = null;
+    }
+  }
+  
+  
+  
+  private Node top;      // reference to the top Node in the stack
+  private int numItems;      // number of items in this IntegerStack
+  
+  private Node findKey(String key){
+   Node N = top;
+    while(N.key != key){
+     N = N.next;
+   }
+   return N;
+  }
+  
+  // IntegerStack
+  // default constructor for the IntegerStack class
+  public Dictionary(){
+    top = null;
+    numItems = 0;
+  }
+  
+  
+  // isEmpty
+  // pre: none
+  // post: returns true if this Dictionary is empty, false otherwise
+  public boolean isEmpty(){
+    return(numItems == 0);  
+  }
+  
+  
+  // size
+  // pre: none
+  // post: returns the number of entries in this Dictionary
+  public int size(){
+    return numItems;
+  }
+  
+  // lookup
+  // pre: none
+  // post: returns value associated key, or null reference if no such key exists
+  public String lookup(String key){
+    String val = null;
+    for(Node T = top; T!=null; T=T.next)
+      if(T.key == key) val = T.value;
+    return val;
+  }
+  
+  // insert
+  // inserts new (key,value) pair into this Dictionary
+  // pre: key currently does not exist in this Dictionary, i.e. lookup(key)==null
+  // post: !isEmpty(), size() is increased by one
+  public void insert(String key, String val) throws KeyCollisionException{
+    if( lookup(key) != null ){
+        throw new KeyCollisionException("cannot insert duplicate keys");
+      }
+    Node N = new Node(key, val);
+      N.next = top;
+      top = N;
+      numItems++;
+}
+  
+  
+    
+  
+  // delete
+  // deletes pair with the given key
+  // pre: key currently exists in this Dictionary, i.e. lookup(key)!=null
+  // post: size() is decreased by one
+  public void delete(String key) throws KeyNotFoundException{
+    if( lookup(key) == null ){  
+      throw new KeyNotFoundException("cannot delete non-existent key");
+    }
+    
+    Node N = findKey(key);
+    Node curr = top;
+    if(curr == N){
+      top = top.next;
+    } else {
+      while(curr.next != N){
+        //if(curr.next == N) break;
+        curr = curr.next;
+      }
+    curr.next = N.next;
+    }
+    numItems--;
+  }
+  
+  
+  
+  // makeEmpty
+  // pre: none
+  // post: isEmpty()
+  public void makeEmpty(){
+    top = null;
+    numItems = 0;
+  }
+  
+  // toString
+  // overrides Object's toString() method
+  public String toString(){
+    
+   String s = "";
+
+   for(Node N = top; N!=null; N=N.next)
+        s = s + "\n" + N.value + " " + N.key;
+      
+      String reverse = new StringBuffer(s).reverse().toString();
+   
+      
+      
+      return reverse;
+  }
+}
